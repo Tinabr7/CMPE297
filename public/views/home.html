@@ -1,0 +1,83 @@
+<!--home.html-->
+<link rel="stylesheet" href="../css/home.css">
+<div class="container-fluid pt-4">
+  <section class="row">
+      <div class="card_like border-light col col-order-1 mr-1 shadow">
+          <div class="row align-items-start">
+              <div class="col-md-4 pt-2 pl-0 pr-0 ">
+                  <img class="icon" src="../assets/report-2-512.png">
+              </div>
+              <div class="col-md-8 pl-0 pr-0">
+                  <div class="row justify-content-end pr-4 pl-0">
+                      <i class="text-white">Device Deployed</i>
+                  </div>
+                  <div class="row justify-content-end pr-4 pl-0">
+                      <div class="huge text-white" >{{message.length}}</div>
+                  </div>
+                  <br>
+              </div>
+          </div>
+      </div>
+
+      <div class="card_like border-light col col-order-12 ml-1 shadow">
+          <div class="row align-items-start">
+              <div class="col-md-4 pt-2 pl-0 pr-0">
+                  <img class="icon" src="../assets/search-512.png">
+              </div>
+              <div class="col-md-8 pl-0 pr-0">
+                  <div class="row justify-content-end pr-4 pl-0">
+                      <i class="text-white text-right">under maintenance</i>
+                  </div>
+                  <div class="row justify-content-end pr-4 pl-0">
+                      <div class="huge  text-white">14</div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <br>
+  <div class="card border-secondary mb-0 pb-0">
+    <div class="card-header section_title"><b>Devices</b></div>
+      <div class="card-body pr-3 pl-3 pt-3 pb-0">
+        <table class="table  table-bordered pb-0 mb-0">
+          <thread>
+            <tr class="thread_header">
+              <th class="Address" scope="col" custom-sort order="'Device'" sort="sort">Address&nbsp;</th>
+              <th class="Device ID" scope="col" custom-sort order="'device_id'" sort="sort">DeviceID&nbsp;</th>
+              <th class="Date" scope="col" custom-sort order="'date'" sort="sort">Date&nbsp;</th>
+            </tr>
+          </thread>
+          <tbody>
+            <tr class="table table-striped" ng-repeat="mes in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
+              <td scope="row">
+                <a ng-href="#/dash/home/{{mes._id}}">{{mes.Address}}</a>
+              </td>
+              <td>
+                <a href={{mes.Device}} target="_blank">{{mes.Device}}</a>
+              </td>
+              <td>{{mes.Date}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="pagination pull-right pt-2 pb-3">
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-secondary" ng-class="{disabled: currentPage == 0}">
+              <a class="text-white" href ng-click="prevPage()">« Prev</a>
+            </button>
+
+            <button type="button" class="btn btn-secondary" ng-repeat="n in range(pagedItems.length, currentPage, currentPage + gap) "
+                    ng-class="{active: n == currentPage}"
+                    ng-click="setPage()">
+              <a class="text-white" href ng-bind="n + 1">1</a>
+            </button>
+
+            <button type="button" class="btn btn-secondary" ng-class="{disabled: (currentPage) == pagedItems.length - 1}">
+              <a class="text-white" href ng-click="nextPage()">Next »</a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/home.html-->

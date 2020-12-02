@@ -1,0 +1,135 @@
+<!--review.html-->
+
+<link rel="stylesheet" href="../css/review.css">
+<div ng-app="MEANapp">
+	<div class="container">
+		<div class="row">
+			<h2 class="text-white">Reviews &amp; Status</h2>
+		</div>
+		<div class="row text-white">
+			<p>Some meaningless drivel</p>
+		</div>
+		<div class="jumbotron">
+			<div class="row justify-content-center">
+				<h2>Detailed !!!!</h2>
+			</div>
+			<div class="progress">
+				<div class="progress-bar bg-info" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-7">
+					<div class="table">
+						<table class="table-responsive table-light">
+							<tbody>
+								<tr>
+									<td>Project Title:</td>
+									<td>{{message.address}}</td>
+								</tr>
+								<tr>
+									<td>Project ID:</td>
+									<td>{{message._id}}</td>
+								</tr>
+								<tr>
+									<td>Status:</td>
+									<td>hi</td>
+								</tr>
+								<tr>
+									<td>Submission Date:</td>
+									<td>{{message.date}}</td>
+								</tr>
+								<tr>
+									<td>Repository:</td>
+									<td>
+										<a href={{message.GitLink}} target="_blank">{{message.GitLink}}</a>
+									</td>
+								</tr>
+								<tr>
+									<td>Description:</td>
+									<td>{{message.Description}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="col-md-5">
+					<div class="table">
+						<table class="table-responsive table-light">
+							<tbody>
+								<tr>
+									<td>Submitter:</td>
+									<td>{{message.Submitter}}</td>
+								</tr>
+								<tr>
+									<td>Co-Submitters:</td>
+									<td>{{message.CoSubmitters}}</td>
+								</tr>
+								<tr>
+									<td>Component</td>
+									<td>{{message.Component}}</td>
+								</tr>
+								<tr>
+									<td>Product:</td>
+									<td>Project Incubator</td>
+								</tr>
+								<tr>
+									<td>Operating System:</td>
+									<td>{{message.OperatingSystem}}</td>
+								</tr>
+								<tr>
+									<td>Vote:</td>
+									<td><div class="form-group">
+									  <select class="form-control">
+									    <option>1</option>
+									    <option>2</option>
+									    <option>3</option>
+									    <option>4</option>
+									    <option>5</option>
+									  </select>
+									</div></td>
+
+								</tr>
+
+							</tbody>
+
+						</table>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+		<a class="btn btn-primary" data-toggle="collapse" data-target="#protected" role="button">TLT</a>
+		<div class="collapse" id="protected">
+			<div class="card card-light text-dark">
+				<div class="row">
+					<div class="col">
+						<form>
+						  <div class="row">
+						    <div class="col">
+						      <input type="text" class="form-control" placeholder="Score">
+						    </div>
+						    <div class="col">
+						      <input type="text" class="form-control" placeholder="Comments">
+						    </div>
+						  </div>
+						</form>
+						<div class="form-check form-check-inline">
+						  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+						  <label class="form-check-label" for="inlineCheckbox1">1</label>
+						</div>
+						<div class="form-check form-check-inline">
+						  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+						  <label class="form-check-label" for="inlineCheckbox2">2</label>
+						</div>
+						<div class="form-check form-check-inline">
+						  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
+						  <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

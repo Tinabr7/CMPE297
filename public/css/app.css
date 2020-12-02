@@ -1,0 +1,16 @@
+fieldset{
+    margin-top: 30px;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+.navbar {
+    grid-area: header;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+

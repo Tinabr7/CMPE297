@@ -1,0 +1,57 @@
+docker network create --driver bridge xnet //create a network bridge 
+
+docker run -it --rm --net=xnet -p 27016:27016 \
+    --hostname config-1 --name config-1 \
+    mongo:3.4.9 --port 27016 --replSet config --configsvr
+
+docker exec -it config-1 mongo --port 27016 --eval '
+    rs.initiate({ _id: "config", members: [
+        { _id : 0, host : "config-1:27016" }
+    ]});
+' 
+
+
+// router node 
+
+docker run -it --rm --net=xnet -p 27015:27015 \
+    --hostname mongos --name mongos \
+    mongo:3.4.9 mongos \
+    --port 27015 --configdb config/config-1:27016
+
+
+
+ //shard server 1-3 
+
+docker run -it --rm --net=xnet -p 27018:27018 \
+    --hostname shard-1 --name shard-1 \
+    mongo:3.4.9 --port 27018 --shardsvr
+
+
+docker run -it --rm --net=xnet -p 27019:27019 \
+ --hostname shard-2 --name shard-2 \
+	mongo:3.4.9 --port 27019 --shardsvr
+
+
+docker run -it --rm --net=xnet -p 27020:27020 \
+ --hostname shard-3 --name shard-3 \
+	mongo:3.4.9 --port 27020 --shardsvr
+
+
+
+docker exec -it mongos mongo --port 27015 --eval '
+    sh.addShard("shard-1:27018"); 
+    sh.addShard("shard-2:27019");
+    sh.addShard("shard-3:27020");
+    sh.enableSharding("myapp");
+    sh.shardCollection("myapp.projects", {"_id": "hashed"});
+    sh.shardCollection("myapp.users", {"_id": "hashed"});
+    sh.shardCollection("myapp.sessions", {"_id": "hashed"});
+' 
+
+docker exec -it mongos mongo --port 27015 --eval '
+   sh.status()
+'
+
+
+db.projects.count() //count collection in each server
+

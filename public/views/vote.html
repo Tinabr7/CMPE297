@@ -1,0 +1,83 @@
+<!--vote.html-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+<link rel="stylesheet" href="../css/home.css">
+<div ng-app="MEANapp">
+	<div class="row">
+		<div class="container pt-5 mt-5 pb-5 mb-5">
+			<div class="card ml-0 mr-0 pr-0 pl-0 col-12">
+				<div class="card-header section_title text-center d-flex flex-wrap justify-content-between align-items-center">
+					<h3>Device ID {{message.device_id}}</h3>
+					<!--likes button-->
+					<a role="button" class="btn btn-outline-primary" ng-click="submitVote()">
+						<span class="far fa-thumbs-up"></span>
+						
+						{{message.Likes}}
+					</a>
+					<!--likes button-->
+				</div>
+				<div class="card-body">
+					<div class="col-md-12">
+						<div class="progress mb-4">
+							<div class="progress-bar progress-bar-striped bg-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 15%">
+							</div>
+						</div>
+						<div class="container" id="project-data">
+							<div class="row mb-2">
+								<div class="col-md-6 d-flex flex-wrap justify-content-between align-items-center">
+									<b>Device Geolocation:</b>
+									<span>{{message.lat}},{{message.long}}</span>
+								</div>
+								<div class="col-md-6 d-flex flex-wrap justify-content-between align-items-center">
+									<b>Address:</b>
+									<span>{{message.address}}
+									</span>
+								</div>
+							</div>
+							<div class="row mb-2">
+								<div class="col-md-6 d-flex flex-wrap justify-content-between align-items-center">
+									<b>Status:</b>
+									<span>GOOD
+									</span>
+								</div>
+								<div class="col-md-6 d-flex flex-wrap justify-content-between align-items-center">
+									<b>Date:</b>
+									<span>{{message.date}}
+									</span>
+								</div>
+							</div>
+							<div class="row mb-2">
+								<div class="col-md-6 d-flex flex-wrap justify-content-between align-items-center">
+									<b>State:</b>
+									<span>{{message.state}}
+									</span>
+								</div>
+								<div class="col-md-6 d-flex flex-wrap justify-content-between align-items-center">
+									<b>Temperature:</b>
+									<span>{{message.temp}}
+									</span>
+								</div>
+							</div>
+							<div class="row mb-2">
+								<div class="col-md-12 d-flex flex-wrap justify-content-between align-items-center">
+									<b>Hardware Version:</b>
+									<a href=target="_blank"></a>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 d-flex justify-content-between align-items-center">
+									<b>Description:</b>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 mb-2 d-flex flex-wrap justify-content-between align-items-center">
+									{{message.Description}}
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

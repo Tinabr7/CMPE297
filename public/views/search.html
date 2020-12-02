@@ -1,0 +1,98 @@
+<!--search.html-->
+<link rel="stylesheet" href="../css/home.css">
+<div class="col-12 justify-content-center">
+  <div class="row">
+    <div class="container pt-5 mt-5 pb-5 mb-5 justify-content-center">
+      <div class="card ml-0 mr-0 pr-0 pl-0 col-12 ">
+        <div class="card-header section_title text-center">
+            <b>Search by Address</b>
+        </div>
+      <div class="card-body">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <form autocomplete="on" ng-submit="submitTitle()" name="SubmitSearchForm">
+              <fieldset>
+                <div class="form-group">
+                    <label class="col-form-label text-white" for="Address">Address</label>
+                    <input type="text" id="Address" class="form-control" name="searchtitle" placeholder="Enter Address" ng-model="SubmitSearchForm1.searchtitle" required>
+                    <br>
+                    <button type="submit" ng-click="showme=true" class="btn btn-secondary"> Search</button>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="jumbotron pt-5 mt-5 pb-5 mb-5 justify-content-center"  ng-show="showme">
+      <div class="row justify-content-center">
+        <h2>Device Summary <h2>
+      </div>
+      <div class="progress">
+        <div class="progress-bar bg-info" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-7">
+          <div class="table">
+            <table class="table-responsive table-light">
+              <tbody>
+                <tr>
+                  <td>Address:</td>
+                  <td>{{message.address}}</td>
+                </tr>
+                <tr>
+                  <td>Date:</td>
+                  <td>{{message.date}}</td>
+                </tr>
+                <tr>
+                
+                  <td>Status:</td>
+                  <td>GOOD</td>
+                </tr>
+                <tr>
+                  <td>Coordinate:</td>
+                  <td>{{message.lat}},{{message.long}}</td>
+                </tr>
+                <tr>
+                  <td>Description:</td>
+                  <td></td>
+                </tr>
+               
+        
+              </tbody>
+            </table>
+          </div>
+      </div>
+      <div class="col-md-5">
+        <div class="table">
+          <table class="table-responsive table-light">
+            <tbody>
+              <tr>
+                <td>Temperature:</td>
+                <td>{{message.temp}} C</td>
+              </tr>
+              <tr>
+                <td>Device ID:</td>
+                <td>{{message.device_id}}</td>
+              </tr>
+              <tr>
+              
+                <td>Zip Code</td>
+                <td>{{message.zipcode}}</td>
+              </tr>
+              <tr>
+                <td>Hardware Version:</td>
+                <td>1.2</td>
+              
+              </tr>
+      
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

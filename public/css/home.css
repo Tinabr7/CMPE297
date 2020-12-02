@@ -1,0 +1,42 @@
+/*.card{*/
+	/*background-color: #3779a5;*/
+/*}*/
+
+.card_like{
+    background-color: #3E78B2;
+}
+
+.icon{
+    width: 50px;
+    height: 50px;
+}
+
+.table, td{
+	background-color: white;
+}
+.table a:link{
+	color: #252323;
+	text-decoration: underline;
+}
+.table a:visited{
+	color: #252323;
+	text-decoration: underline;
+}
+.table a:active{
+	color: #252323;
+	text-decoration: underline;
+}
+.table a:hover{
+	color: #c2c6c4;
+	text-decoration: underline;
+}
+
+.section_title{
+    background-color: #213D58;
+    color: white;
+}
+
+.thread_header{
+    background-color: #70798C;
+    color: white;
+}

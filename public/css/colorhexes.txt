@@ -1,0 +1,5 @@
+off-white: #fbfbfb
+light-blue: #7ec1d6
+medium-blue: #3779a5
+med-dark-blue: #2a618e
+darkest-blue: #173d5b
