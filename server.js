@@ -195,6 +195,34 @@ app.post('/dash/zipcode',function (req, res){
 });
 });
 
+app.post('/dash/address', function (req, res) {
+    var address = req.body.address;
+    console.log(address)
+
+    const query = Projects.find({ address: address }).exec(function (err, project) {
+        if (err) {
+            //console.log("error finding the project");
+            res.status(500).json(err)
+
+        } else {
+
+
+            //console.log("found project :");
+            //console.log((project));
+            // console.log("des",project.Description);
+            // var sum=parseInt(project.VoteSum) + parseInt(req.body.vote);
+
+            res.json(project);
+
+        }
+
+
+
+
+
+    });
+});
+
 app.post('/dash/city', function (req, res) {
     var city = req.body.city;
     console.log(city)
