@@ -26,7 +26,6 @@ const ProjectSchema = new mongoose.Schema({
     type: Number,
     default: ''
   },
-
   temp: {
     type: Number,
     default: ''

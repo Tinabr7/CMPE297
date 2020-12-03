@@ -2,6 +2,8 @@
 
 'use strict';
 
+const projects = require('./server/models/projects');
+
 /********************************
 Dependencies
 ********************************/
@@ -197,6 +199,7 @@ app.post('/dash/zipcode',function (req, res){
 
 app.post('/dash/address', function (req, res) {
     var address = req.body.address;
+    var zipcode = req.body.zipcode
     console.log(address)
 
     const query = Projects.find({ address: address }).exec(function (err, project) {
