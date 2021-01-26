@@ -1,4 +1,3 @@
-# CMPE297
 
 ## Introduction
 
